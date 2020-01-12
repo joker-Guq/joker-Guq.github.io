@@ -688,26 +688,74 @@ td {
   opacity: 1;
 }
 .sidebar-ov-author__avatar:hover .sidebar-ov-author__avatar_img {
-  animation: avatar-turn 0.8s both ease-out;
+  animation: avatar-shake 0.8s both ease-out;
 }
-@-moz-keyframes avatar-turn {
+@-moz-keyframes avatar-shake {
+  0% {
+    transform: scale(1);
+  }
+  10%, 20% {
+    transform: scale(0.9) rotate(3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale(1.1) rotate(3deg);
+  }
   100% {
-    transform: rotate(1turn);
+    transform: scale(1);
   }
 }
-@-webkit-keyframes avatar-turn {
+@-webkit-keyframes avatar-shake {
+  0% {
+    transform: scale(1);
+  }
+  10%, 20% {
+    transform: scale(0.9) rotate(3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale(1.1) rotate(3deg);
+  }
   100% {
-    transform: rotate(1turn);
+    transform: scale(1);
   }
 }
-@-o-keyframes avatar-turn {
+@-o-keyframes avatar-shake {
+  0% {
+    transform: scale(1);
+  }
+  10%, 20% {
+    transform: scale(0.9) rotate(3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale(1.1) rotate(3deg);
+  }
   100% {
-    transform: rotate(1turn);
+    transform: scale(1);
   }
 }
-@keyframes avatar-turn {
+@keyframes avatar-shake {
+  0% {
+    transform: scale(1);
+  }
+  10%, 20% {
+    transform: scale(0.9) rotate(3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale(1.1) rotate(3deg);
+  }
   100% {
-    transform: rotate(1turn);
+    transform: scale(1);
   }
 }
 .sidebar-ov-author__p {
@@ -1630,6 +1678,30 @@ td {
   box-sizing: content-box;
   cursor: zoom-out;
   will-change: transform;
+}
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  opacity: 0;
+  transition: opacity 0.4s linear;
+}
+.loading-bar .progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #77b6ff;
+  box-shadow: 0 0 10px rgba(119,182,255,0.7);
+}
+.loading-bar.loading {
+  opacity: 1;
+  transition: none;
+}
+.loading-bar.loading .progress {
+  transition: width 0.4s ease;
 }
 .copy-button {
   position: absolute;
